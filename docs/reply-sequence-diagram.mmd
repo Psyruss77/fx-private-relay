@@ -1,0 +1,7 @@
+sequenceDiagram
+    Sender MTA->>relay.firefox.com: To: abc123@relay.firefox.com, Reply-To: replies@sender.com
+    relay.firefox.com->>relay.firefox.com: Lookup reply456@relay.firefox.com for (abc123@relay.firefox.com, replies@sender.com)
+    relay.firefox.com->>Receiver MTA: Replace Reply-To: with reply456@relay.firefox.com
+    Receiver MTA->>relay.firefox.com: To: reply456@relay.firefox.com
+    relay.firefox.com->>relay.firefox.com: Lookup reply456@relay.firefox.com
+    relay.firefox.com->>Sender MTA: Replace To: with replies@sender.com, Replace From:, Reply-To: with abc123@relay.firefox.com
